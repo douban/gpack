@@ -5,20 +5,15 @@ import select
 from os import access
 from os.path import join, exists, getmtime, getsize
 from urllib import unquote
+from BaseHTTPServer import BaseHTTPRequestHandler as _
+
 from libs.git import Git
-
-
-# Weekday and month names for HTTP date/time formatting; always English!
-_weekdayname = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
-_monthname = [None, # Dummy so we can use 1-based month numbers
-              "Jan", "Feb", "Mar", "Apr", "May", "Jun",
-              "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
 
 def format_date_time(timestamp):
     year, month, day, hh, mm, ss, wd, y, z = time.gmtime(timestamp)
     return "%s, %02d %3s %4d %02d:%02d:%02d GMT" % (
-        _weekdayname[wd], day, _monthname[month], year, hh, mm, ss
+        _.weekdayname[wd], day, _.monthname[month], year, hh, mm, ss
     )
 
 
