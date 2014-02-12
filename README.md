@@ -8,3 +8,6 @@ Python clone of [grack](https://github.com/schacon/grack)
 * git
 * gevent
 ```
+
+## License
+See the LICENSE file for the full license text.
